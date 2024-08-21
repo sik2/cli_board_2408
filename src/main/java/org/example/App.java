@@ -1,17 +1,15 @@
-import article.ArticleController;
-import system.SystemController;
+package org.example;
 
-import java.util.Scanner;
+import org.example.article.ArticleController;
+import org.example.system.SystemController;
 
 public class App {
-    Scanner sc;
     ArticleController articleController;
     SystemController systemController;
 
 
-    App (Scanner sc) {
-        this.sc = sc;
-        articleController = new ArticleController(sc);
+    App () {
+        articleController = new ArticleController();
         systemController = new SystemController();
     }
 
@@ -19,7 +17,7 @@ public class App {
         System.out.println("== 게시판 앱 ==");
         while (true) {
             System.out.print("명령) ");
-            String command = sc.nextLine().trim();
+            String command = Container.getSc().nextLine().trim();
 
             if (command.equals("종료")) {
                 systemController.exit();

@@ -1,4 +1,4 @@
-package article;
+package org.example.article;
 
 public class Article {
     private int id;
