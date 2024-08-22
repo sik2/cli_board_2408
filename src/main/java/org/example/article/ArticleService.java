@@ -6,7 +6,8 @@ import java.util.List;
 public class ArticleService {
     List<Article> articleList = new ArrayList<>();
     int lastId = 1;
-    public int create (String subject, String content) {
+
+    public int create(String subject, String content) {
         Article article = new Article(lastId, subject, content);
         articleList.add(article);
 

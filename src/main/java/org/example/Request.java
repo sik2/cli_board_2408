@@ -4,8 +4,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Request {
-    private String actionCode;
-    private Map<String, String> params = new HashMap<>();
+    private final String actionCode;
+    private final Map<String, String> params = new HashMap<>();
 
     public Request(String command) {
         String[] commandList = command.split("\\?", 2);
@@ -27,7 +27,8 @@ public class Request {
     public String getActionCode() {
         return actionCode;
     }
-    public String getParams (String key) {
+
+    public String getParams(String key) {
         return params.get(key);
     }
 }

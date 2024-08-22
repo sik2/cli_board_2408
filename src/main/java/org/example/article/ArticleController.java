@@ -3,15 +3,13 @@ package org.example.article;
 import org.example.Container;
 import org.example.Request;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class ArticleController {
 
-
     ArticleService articleService;
 
-    ArticleController () {
+    public ArticleController() {
         articleService = new ArticleService();
     }
 
@@ -27,7 +25,7 @@ public class ArticleController {
         System.out.printf("%d번 게시물이 등록되었습니다.\n", id);
     }
 
-    public void list () {
+    public void list() {
         List<Article> articleList = articleService.findAll();
         System.out.println("번호 / 제목 / 내용");
         System.out.println("----------------------");
@@ -39,6 +37,7 @@ public class ArticleController {
     }
     public void delete (Request request) {
         int id = _getIntParam(request.getParams("id"));
+
 
         if (id == -1) {
             System.out.println("잘못된 입력입니다.");
