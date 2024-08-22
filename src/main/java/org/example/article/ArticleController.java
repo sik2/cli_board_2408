@@ -7,20 +7,24 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ArticleController {
-    List<Article> articleList = new ArrayList<>();
-    int lastId = 1;
+
+
+    ArticleService articleService;
+
+    ArticleController () {
+        articleService = new ArticleService();
+    }
 
     public void write() {
         System.out.print("제목 : ");
         String subject = Container.getSc().nextLine().trim();
         System.out.print("내용 : ");
         String content = Container.getSc().nextLine().trim();
-        System.out.printf("%d번 게시물이 등록되었습니다.\n", lastId);
 
-        Article article = new Article(lastId, subject, content);
-        articleList.add(article);
+        //
+        int id = articleService.create(subject, content);
 
-        lastId++;
+        System.out.printf("%d번 게시물이 등록되었습니다.\n", id);
     }
 
     public void list () {
