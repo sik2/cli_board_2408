@@ -28,6 +28,7 @@ public class ArticleController {
     }
 
     public void list () {
+        List<Article> articleList = articleService.findAll();
         System.out.println("번호 / 제목 / 내용");
         System.out.println("----------------------");
         for (int i = articleList.size() - 1; i >= 0; i--) {

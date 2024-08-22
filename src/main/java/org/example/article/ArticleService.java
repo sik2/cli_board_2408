@@ -14,4 +14,8 @@ public class ArticleService {
 
         return article.getId();
     }
+
+    public List<Article> findAll() {
+        return articleList;
+    }
 }
