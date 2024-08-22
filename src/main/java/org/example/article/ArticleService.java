@@ -18,4 +18,18 @@ public class ArticleService {
     public List<Article> findAll() {
         return articleList;
     }
+
+    public Article getFindById(int id) {
+        for (Article item : articleList) {
+            if (item.getId() == id) {
+                return item;
+            }
+        }
+
+        return null;
+    }
+
+    public void remove(Article article) {
+        articleList.remove(article);
+    }
 }

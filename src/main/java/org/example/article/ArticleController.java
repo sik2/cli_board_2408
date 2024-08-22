@@ -45,12 +45,12 @@ public class ArticleController {
             return;
         }
 
-        Article article = _getFindById(id);
+        Article article = this.articleService.getFindById(id);
 
         if (article == null) {
             System.out.printf("%d번 게시물은 존재하지 않습니다.\n", id);
         } else {
-            articleList.remove(article);
+            articleService.remove(article);
             System.out.printf("%d번 게시물이 삭제되었습니다.\n", id);
         }
     }
@@ -84,15 +84,6 @@ public class ArticleController {
     }
 
 
-    private Article _getFindById(int id) {
-        for (Article item : articleList) {
-            if (item.getId() == id) {
-                return item;
-            }
-        }
-
-        return null;
-    }
     private int _getIntParam(String id) {
         int defaultValue = -1;
 
