@@ -8,14 +8,11 @@ import java.util.Map;
 
 public class ArticleRepository {
     List<Article> articleList = new ArrayList<>();
-    int lastId = 1;
 
     public int create(String subject, String content) {
-        Article article = new Article(lastId, subject, content);
-        articleList.add(article);
-        lastId++;
-
-        return article.getId();
+        String sql = String.format("insert into article set subject='%s', content='%s'", subject, content);
+        int id = Container.getDBConnection().insert(sql);
+        return id;
     }
 
     public List<Article> findAll() {
