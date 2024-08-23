@@ -1,7 +1,10 @@
 package org.example.article;
 
+import org.example.Container;
+
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class ArticleRepository {
     List<Article> articleList = new ArrayList<>();
@@ -16,6 +19,15 @@ public class ArticleRepository {
     }
 
     public List<Article> findAll() {
+        List<Article> articleList = new ArrayList<>();
+
+        List<Map<String, Object>> rows = Container.getDBConnection().selectRows("select * from article");
+
+        for (Map<String, Object> row : rows) {
+            Article article = new Article(row);
+
+            articleList.add(article);
+        }
         return articleList;
     }
 

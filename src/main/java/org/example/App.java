@@ -17,12 +17,8 @@ public class App {
         DBConnection.DB_PORT =3306;
         DBConnection.DB_USER ="root";
         DBConnection.DB_PASSWORD = "";
-
-        DBConnection DBConnection = new DBConnection();
-        DBConnection.connect();
-
-        List<Map<String, Object>> rs = DBConnection.selectRows("select * from article");
-        System.out.println(rs);
+        // DB 연결
+        Container.getDBConnection().connect();
 
         articleController = new ArticleController();
         systemController = new SystemController();
