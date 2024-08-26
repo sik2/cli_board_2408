@@ -43,7 +43,8 @@ public class ArticleRepository {
     }
 
     public void modify(Article article, String modifySubject, String modifyContent) {
-        article.setSubject(modifySubject);
-        article.setContent(modifyContent);
+        String sql = String.format("UPDATE article SET subject='%s', content='%s' where id = %d", modifySubject, modifyContent, article.getId());
+        Container.getDBConnection().update(sql);
+
     }
 }
